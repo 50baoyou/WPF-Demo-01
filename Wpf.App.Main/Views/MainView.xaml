@@ -13,6 +13,11 @@
 
     <Grid Background="LightYellow">
         <TextBlock Text="UI控件" />
+        <Button
+            Width="100"
+            Height="30"
+            Content="测试按钮"
+            Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
     </Grid>
 
 </UserControl>
