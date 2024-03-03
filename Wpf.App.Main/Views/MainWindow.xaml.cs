@@ -1,9 +1,9 @@
 ﻿using MahApps.Metro.Controls;
 
-namespace Shell.Views
+namespace Wpf.App.Main.Views
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// AppMainView.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : MetroWindow
     {

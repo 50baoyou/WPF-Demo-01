@@ -1,9 +1,9 @@
 ﻿using Prism.Mvvm;
 
-namespace Shell.ViewModels
+namespace Wpf.App.Main.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        public static string Title => "WPF上位机项目";
+        public static string Message => "主窗口";
     }
 }
