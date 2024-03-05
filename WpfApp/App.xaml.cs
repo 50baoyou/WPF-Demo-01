@@ -55,8 +55,8 @@ namespace WpfApp
         private void OnLoginCompleted(object? sender, EventArgs e)
         {
             // 创建主窗口
-            var minWindow = Container.Resolve<MainWindow>();
-            minWindow.Show();
+            var mainWindow = Container.Resolve<MainWindow>();
+            mainWindow.Show();
 
             // 关闭登录窗口
             Current.MainWindow.Close();
