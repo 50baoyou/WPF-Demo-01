@@ -6,7 +6,6 @@ using Wpf.App.Share.Prism;
 
 namespace Wpf.App.Main
 {
-    [Module(OnDemand = true)]
     public class AppMainModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
