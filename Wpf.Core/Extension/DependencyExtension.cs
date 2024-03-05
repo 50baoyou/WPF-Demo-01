@@ -61,16 +61,24 @@ namespace Wpf.Core.Extension
 
             foreach (var item in list)
             {
+                if (item.LifeTime == LifeTime.Singleton)
+                {
+                    container.RegisterSingleton(type); // 注册单例
+                }
+
                 foreach (var IType in item.Types)
                 {
-                    if (item.LifeTime == LifeTime.Singleton)
-                    {
-                        container.RegisterSingleton(IType, type); // 以接口注册单例
-                    }
-                    else if (item.LifeTime == LifeTime.Transient)
-                    {
-                        container.Register(IType, type); // 以接口注册多例
-                    }
+                    //if (item.LifeTime == LifeTime.Singleton)
+                    //{
+                    //    container.RegisterSingleton(IType, type); 
+                    //}
+                    //else if (item.LifeTime == LifeTime.Transient)
+                    //{
+                    //    container.Register(IType, type); // 以接口注册多例
+                    //}
+
+                    // 服务的实际类型也被注册为单例
+                    container.Register(IType, type); // 以接口注册多例
                 }
             }
         }

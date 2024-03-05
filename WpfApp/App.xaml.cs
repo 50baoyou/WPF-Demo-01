@@ -6,6 +6,7 @@ using Wpf.App.Login;
 using Wpf.App.Login.ViewModels;
 using Wpf.App.Login.Views;
 using Wpf.App.Main;
+using Wpf.Core;
 using WpfApp.Views;
 
 namespace WpfApp
@@ -43,8 +44,12 @@ namespace WpfApp
         {
             base.ConfigureModuleCatalog(moduleCatalog);
 
+            // 应用层模块
             moduleCatalog.AddModule<AppLoginModule>();
             moduleCatalog.AddModule<AppMainModule>();
+
+            // 核心层模块
+            moduleCatalog.AddModule<CoreModule>();
         }
 
         private void OnLoginCompleted(object? sender, EventArgs e)
@@ -54,7 +59,7 @@ namespace WpfApp
             minWindow.Show();
 
             // 关闭登录窗口
-            _currentWindow?.Close();
+            Current.MainWindow.Close();
         }
     }
 }
