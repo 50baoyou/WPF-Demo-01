@@ -6,32 +6,25 @@ namespace Wpf.App.Login.ViewModels
 {
     public class LoginWindowViewModel : BindableBase
     {
-
         public event EventHandler LoginCompleted;
 
-        private bool isAuthenticated;
+        private bool _isAuthentication;
 
         public DelegateCommand LoginCommand { get; set; }
-
         public LoginWindowViewModel()
         {
-            isAuthenticated = false;
-            LoginCommand = new(Login);
+            _isAuthentication = false;
+            LoginCommand = new(AuthenticateUser);
         }
 
-        private void Login()
+        private void AuthenticateUser()
         {
-            isAuthenticated = true;
+            _isAuthentication = true;
 
-            if (isAuthenticated)
+            if (_isAuthentication)
             {
-                OnLoginCompleted(EventArgs.Empty);
+                LoginCompleted?.Invoke(this, EventArgs.Empty);
             }
-        }
-
-        protected virtual void OnLoginCompleted(EventArgs e)
-        {
-            LoginCompleted?.Invoke(this, e);
         }
     }
 }

@@ -11,5 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wpf.App.Share\Wpf.App.Share.csproj" />
+    <ProjectReference Include="..\Wpf.Core\Wpf.Core.csproj" />
   </ItemGroup>
 </Project>

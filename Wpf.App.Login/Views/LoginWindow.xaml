@@ -7,19 +7,61 @@
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
-    Width="600"
-    Height="300"
+    Width="700"
+    Height="400"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    BorderThickness="0"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
     <Grid>
-        <Button
-            Width="100"
-            Height="40"
-            Command="{Binding LoginCommand}"
-            Content="登录测试" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Left  -->
+        <Grid Grid.Column="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="#7B2ED9" />
+                    <GradientStop Offset="1" Color="#5485FF" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Image Margin="90" Source="pack://application:,,,/Wpf.UI;component/Images/login-logo.png" />
+        </Grid>
+
+        <!--  Right  -->
+        <Grid Grid.Column="1" Background="White">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock
+                    Margin="0,10"
+                    FontSize="30"
+                    Text="欢迎使用" />
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <TextBlock Width="50" Text="用户名" />
+                    <TextBox Width="150" mah:TextBoxHelper.Watermark="请输入账号" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <TextBlock Width="50" Text="密   码" />
+                    <TextBox Width="150" mah:TextBoxHelper.Watermark="请输入密码" />
+                </StackPanel>
+                <Button
+                    Width="200"
+                    Height="30"
+                    Margin="0,5,0,0"
+                    Background="#5485FF"
+                    BorderThickness="0"
+                    Command="{Binding LoginCommand}"
+                    Content="登录系统"
+                    FontFamily="Microsoft YaHei UI"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+            </StackPanel>
+        </Grid>
     </Grid>
 
 </mah:MetroWindow>

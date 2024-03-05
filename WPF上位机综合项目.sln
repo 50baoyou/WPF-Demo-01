@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shell", "Shell\Shell.csproj", "{BF531C67-A9DA-4637-A89C-5CCA4E9D453B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EAEF8600-6AA9-47C8-A4E9-E1B070E7D645}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5A341CC1-FB2B-479D-8BA8-6972AC560694}"
@@ -23,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Logger", "Wpf.Logger\Wp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.UI", "Wpf.UI\Wpf.UI.csproj", "{B996518C-CD28-455A-A82A-860E6EACF580}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.App.Login", "Wpf.App.Login\Wpf.App.Login.csproj", "{0E6383AF-3C95-43F9-BDF9-B20BD6CFC7A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.App.Login", "Wpf.App.Login\Wpf.App.Login.csproj", "{0E6383AF-3C95-43F9-BDF9-B20BD6CFC7A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{7D989B44-A9D7-48E8-879C-6C91034688D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp", "WpfApp\WpfApp.csproj", "{7D989B44-A9D7-48E8-879C-6C91034688D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{0A87E0B8-33DC-4B90-BDB5-F2ED0977A305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BF531C67-A9DA-4637-A89C-5CCA4E9D453B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF531C67-A9DA-4637-A89C-5CCA4E9D453B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF531C67-A9DA-4637-A89C-5CCA4E9D453B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF531C67-A9DA-4637-A89C-5CCA4E9D453B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4F3FEC9-F066-460D-8DB3-F6595B8F53C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4F3FEC9-F066-460D-8DB3-F6595B8F53C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4F3FEC9-F066-460D-8DB3-F6595B8F53C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
