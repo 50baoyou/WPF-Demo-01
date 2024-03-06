@@ -1,13 +1,14 @@
-﻿using Prism.Ioc;
+﻿using Prism.Events;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
 using Wpf.App.Login;
-using Wpf.App.Login.ViewModels;
-using Wpf.App.Login.Views;
 using Wpf.App.Main;
 using Wpf.App.Share.Prism;
 using Wpf.Core;
+using Wpf.Core.Events;
+using Wpf.Core.Extension;
 using WpfApp.Views;
 
 namespace WpfApp
@@ -51,32 +52,27 @@ namespace WpfApp
         {
             base.OnInitialized();
 
-            var loginWindow = Current.MainWindow;
-            if (loginWindow.DataContext is LoginWindowViewModel loginWindowViewModel)
-            {
-                // 订阅登录完成事件
-                loginWindowViewModel.LoginCompleted += OnLoginCompleted;
-            }
-            else
-            {
-                MessageBox.Show("程序异常，请重新启动应用或请联系管理员。");
-                Shutdown();
-            }
+            // 订阅登录模块事件
+            var eventAggregator = Container.Resolve<IEventAggregator>();
+            eventAggregator.ResgiterMessager(OnLoginCompleted, ModuleNames.AppLoginModule);
         }
 
-        private void OnLoginCompleted(object? sender, EventArgs e)
+        private void OnLoginCompleted(MessageModel model)
         {
-            // 加载应用程序主模块
-            var moduleManager = Container.Resolve<IModuleManager>();
-            moduleManager.LoadModule(ModuleNames.AppMainModule);
-            //PrismProvider.ModuleManager.LoadModule(ModuleNames.AppMainModule);
+            if (model.Content is LoginStatus.LoginSuccessful)
+            {
+                // 加载应用程序主模块
+                var moduleManager = Container.Resolve<IModuleManager>();
+                moduleManager.LoadModule(ModuleNames.AppMainModule);
+                //PrismProvider.ModuleManager.LoadModule(ModuleNames.AppMainModule);
 
-            // 创建主界面窗口
-            var mainWindow = Container.Resolve<MainWindow>();
-            mainWindow.Show();
+                // 创建主界面窗口
+                var mainWindow = Container.Resolve<MainWindow>();
+                mainWindow.Show();
 
-            // 关闭登录窗口
-            Current.MainWindow.Close();
+                // 关闭登录窗口
+                Current.MainWindow.Close();
+            }
         }
     }
 }

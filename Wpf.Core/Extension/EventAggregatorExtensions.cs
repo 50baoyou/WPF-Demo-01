@@ -18,7 +18,7 @@ namespace Wpf.Core.Extension
         {
             return aggregator.GetEvent<MessageEvent>().Subscribe(action, ThreadOption.PublisherThread, true, (p) =>
             {
-                return p.Target.Equals(filterName);
+                return p.FilterModule.Equals(filterName);
             });
         }
 
@@ -28,11 +28,11 @@ namespace Wpf.Core.Extension
         /// <param name="aggregator">事件聚合器</param>
         /// <param name="targetName">目标模块</param>
         /// <param name="messageContentr">消息内容</param>
-        public static void SendMessager(this IEventAggregator aggregator, string targetName, string messageContent)
+        public static void SendMessager(this IEventAggregator aggregator, string moduleName, string messageContent)
         {
             aggregator.GetEvent<MessageEvent>().Publish(new MessageModel()
             {
-                Target = targetName,
+                FilterModule = moduleName,
                 Content = messageContent
             });
         }

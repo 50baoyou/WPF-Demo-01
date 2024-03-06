@@ -13,9 +13,9 @@ namespace Wpf.Core.Events
     public class MessageModel
     {
         /// <summary>
-        /// 目标
+        /// 目标模块
         /// </summary>
-        public string Target { get; set; } = null!;
+        public string FilterModule { get; set; } = null!;
 
         /// <summary>
         /// 内容

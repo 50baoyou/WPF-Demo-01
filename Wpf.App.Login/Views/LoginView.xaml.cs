@@ -1,13 +1,13 @@
-﻿using MahApps.Metro.Controls;
+﻿using System.Windows.Controls;
 
 namespace Wpf.App.Login.Views
 {
     /// <summary>
     /// Interaction logic for ViewA.xaml
     /// </summary>
-    public partial class LoginWindow : MetroWindow
+    public partial class LoginView : UserControl
     {
-        public LoginWindow()
+        public LoginView()
         {
             InitializeComponent();
         }
