@@ -12,6 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Languages\EnglishLanguage.xaml" />
+    <Page Remove="Languages\SimplifiedChineseLanguage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
@@ -22,6 +27,8 @@
     <Resource Include="Images\login-logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Languages\EnglishLanguage.xaml" />
+    <Resource Include="Languages\SimplifiedChineseLanguage.xaml" />
   </ItemGroup>
 
 </Project>

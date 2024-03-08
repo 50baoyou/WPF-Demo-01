@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <system:String x:Key="标题">WPF Super App</system:String>
+    <system:String x:Key="用户名">Please enter user name</system:String>
+    <system:String x:Key="密码">Please enter password</system:String>
+    <system:String x:Key="登录按钮">Sign In</system:String>
+    <system:String x:Key="语言按钮_简体中文">SimplifiedChinese</system:String>
+    <system:String x:Key="语言按钮_英语">English</system:String>
+</ResourceDictionary>

@@ -5,10 +5,11 @@ using Prism.Unity;
 using System.Windows;
 using Wpf.App.Login;
 using Wpf.App.Main;
+using Wpf.App.Share.Models;
 using Wpf.App.Share.Prism;
 using Wpf.Core;
 using Wpf.Core.Events;
-using Wpf.Core.Extension;
+using Wpf.Core.Language;
 using WpfApp.Views;
 
 namespace WpfApp
@@ -23,9 +24,10 @@ namespace WpfApp
             return Container.Resolve<LoginWindow>();
         }
 
+        // 注册服务
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterSingleton<ILanguageManager, LanguageManager>();
         }
 
         // 注册模块
@@ -54,17 +56,20 @@ namespace WpfApp
 
             // 订阅登录模块事件
             var eventAggregator = Container.Resolve<IEventAggregator>();
-            eventAggregator.ResgiterMessager(OnLoginCompleted, ModuleNames.AppLoginModule);
+            eventAggregator.GetEvent<LoginCompletedEvent>().Subscribe(OnLoginCompleted, ThreadOption.UIThread);
         }
 
-        private void OnLoginCompleted(MessageModel model)
+        /// <summary>
+        /// 登录完成后打开主界面
+        /// </summary>
+        /// <param name="currentUser"></param>
+        private void OnLoginCompleted(CurrentUser currentUser)
         {
-            if (model.Content is LoginStatus.LoginSuccessful)
+            if (currentUser is not null)
             {
                 // 加载应用程序主模块
                 var moduleManager = Container.Resolve<IModuleManager>();
                 moduleManager.LoadModule(ModuleNames.AppMainModule);
-                //PrismProvider.ModuleManager.LoadModule(ModuleNames.AppMainModule);
 
                 // 创建主界面窗口
                 var mainWindow = Container.Resolve<MainWindow>();

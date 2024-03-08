@@ -1,6 +1,7 @@
 ﻿namespace WpfApp.ViewModels
 {
-    internal class LoginWindowViewModel
+    public class LoginWindowViewModel
     {
+
     }
 }

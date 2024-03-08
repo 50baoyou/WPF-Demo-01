@@ -5,7 +5,7 @@ namespace Wpf.Core.Events
     /// <summary>
     /// 消息事件
     /// </summary>
-    public class MessageEvent : PubSubEvent<MessageModel>
+    public class MessageEvent : PubSubEvent<string>
     {
     }
 

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:language="clr-namespace:Wpf.Core.Language;assembly=Wpf.Core"
     xmlns:local="clr-namespace:Wpf.App.Login.Views"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -28,15 +29,16 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <Image Margin="90" Source="pack://application:,,,/Wpf.UI;component/Images/login-logo.png" />
+            <Image Margin="80" Source="pack://application:,,,/Wpf.UI;component/Images/login-logo.png" />
         </Grid>
 
         <!--  Right  -->
         <Grid Grid.Column="1" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
-                <RowDefinition Height="4*" />
+                <RowDefinition Height="5*" />
                 <RowDefinition Height="6*" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
 
             <Button
@@ -57,7 +59,7 @@
                 VerticalAlignment="Center"
                 FontSize="30"
                 Foreground="#333"
-                Text="{Binding Title}" />
+                Text="{DynamicResource 标题}" />
 
             <StackPanel
                 Grid.Row="2"
@@ -73,9 +75,10 @@
                     <TextBox
                         Width="160"
                         Margin="10,0,0,0"
-                        mah:TextBoxHelper.Watermark="请输入账号"
+                        mah:TextBoxHelper.Watermark="{DynamicResource 用户名}"
                         BorderThickness="0,0,0,1"
-                        FontSize="13" />
+                        FontSize="13"
+                        Text="{Binding UserName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <iconPacks:PackIconBootstrapIcons
@@ -84,12 +87,14 @@
                         Margin="6,6,10,6"
                         Foreground="#666"
                         Kind="ShieldLock" />
-                    <TextBox
+                    <PasswordBox
+                        x:Name="LoginPasswordBox"
                         Width="160"
                         Margin="10,0,0,0"
-                        mah:TextBoxHelper.Watermark="请输入密码"
+                        mah:TextBoxHelper.Watermark="{DynamicResource 密码}"
                         BorderThickness="0,0,0,1"
-                        FontSize="13" />
+                        FontSize="13"
+                        PasswordChanged="LoginPasswordBox_PasswordChanged" />
                 </StackPanel>
                 <Button
                     Width="200"
@@ -98,11 +103,31 @@
                     Background="#5485FF"
                     BorderThickness="0"
                     Command="{Binding LoginCommand}"
-                    Content="登录系统"
+                    Content="{DynamicResource 登录按钮}"
                     FontFamily="Microsoft YaHei UI"
                     FontSize="13"
                     FontWeight="Medium"
                     Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="3"
+                Margin="10"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <RadioButton
+                    x:Name="SimplifiedChineseRadioButton"
+                    Margin="0,0,5,0"
+                    Command="{Binding SwitchLanguageCommand}"
+                    CommandParameter="{x:Static language:LanguageDictionaryNames.SimplifiedChineseLanguage}"
+                    Content="{DynamicResource 语言按钮_简体中文}"
+                    IsChecked="True" />
+                <RadioButton
+                    x:Name="EnglishRadioButton"
+                    Margin="0,0,5,0"
+                    Command="{Binding SwitchLanguageCommand}"
+                    CommandParameter="{x:Static language:LanguageDictionaryNames.EnglishLanguage}"
+                    Content="{DynamicResource 语言按钮_英语}" />
             </StackPanel>
         </Grid>
     </Grid>

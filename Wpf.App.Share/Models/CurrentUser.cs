@@ -1,6 +1,6 @@
 ﻿namespace Wpf.App.Share.Models
 {
-    public class Account
+    public class CurrentUser
     {
         public string UsertName { get; set; } = null!;
 

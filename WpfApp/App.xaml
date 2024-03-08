@@ -6,10 +6,6 @@
     xmlns:prism="http://prismlibrary.com/">
     <Application.Resources>
         <ResourceDictionary>
-            <!--<Style TargetType="Control">
-                <Setter Property="FontFamily" Value="Microsoft YaHei UI" />
-                <Setter Property="FontSize" Value="20" />
-            </Style>-->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Wpf.UI;component/Styles/GenericStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
