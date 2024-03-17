@@ -8,13 +8,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:share="clr-namespace:Wpf.App.Share.Prism;assembly=Wpf.App.Share"
-    d:DesignHeight="500"
-    d:DesignWidth="1000"
+    d:DesignHeight="1080"
+    d:DesignWidth="1920"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
 
     <Grid Background="WhiteSmoke">
-        <TextBlock FontSize="20" Text="主模块" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="500" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.ImageRegion}" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static share:RegionNames.MenuRegion}" />
+        </Grid>
     </Grid>
 
 </UserControl>

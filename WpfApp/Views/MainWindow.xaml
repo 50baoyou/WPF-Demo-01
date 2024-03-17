@@ -9,13 +9,15 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:share="clr-namespace:Wpf.App.Share.Prism;assembly=Wpf.App.Share"
     Title="{Binding Title}"
+    Width="1920"
+    Height="1080"
     MinWidth="1280"
     MinHeight="720"
     prism:ViewModelLocator.AutoWireViewModel="True"
     BorderThickness="0"
     GlowBrush="#999"
     ResizeMode="CanResizeWithGrip"
-    SizeToContent="WidthAndHeight"
+    SizeToContent="Manual"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
